@@ -33,7 +33,7 @@ app.use('/api/doctors', doctorRoutes); // Add doctors API routes under '/api/doc
 
 // Serve static files (images) from the 'uploads' folder
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-let PORT= process.env.PORT || 5000; // Default to 5000 if PORT is not set in .env
+const PORT= process.env.PORT || 5000; // Default to 5000 if PORT is not set in .env
 // Connect to MongoDB and start the server
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
