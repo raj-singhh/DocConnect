@@ -79,13 +79,14 @@ export default function AddDoctor({ onDoctorAdded, onCancel }) {
       formPayload.append('language', JSON.stringify(formData.languages));
       if (formData.photo) formPayload.append('photo', formData.photo);
 
-      const res = await fetch('http://localhost:5000/api/doctors/add-doctor', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/doctors/add-doctor`, {
         method: 'POST',
         body: formPayload,
       });
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
+        console.error('Error response:', errorData);
         throw new Error(errorData.message || 'Failed to add doctor');
       }
 
