@@ -39,7 +39,7 @@ export default function DestinationPage() {
         limit: 5 
       }).toString();
       
-      const res = await fetch(`http://localhost:5000/api/doctors/list-doctors?${params}`);
+      const res = await fetch(`https://docconnect-backend-57d6.onrender.com/api/doctors/list-doctors?${params}`);
       
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
