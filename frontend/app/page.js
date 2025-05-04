@@ -38,8 +38,8 @@ export default function DestinationPage() {
         page, 
         limit: 5 
       }).toString();
-      
-      const res = await fetch(`https://docconnect-backend-57d6.onrender.com/api/doctors/list-doctors?${params}`);
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+      const res = await fetch(`${backendUrl}/api/doctors/list-doctors?${params}`);
       
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
