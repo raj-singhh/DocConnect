@@ -71,7 +71,7 @@ export default function AddDoctor({ onDoctorAdded, onCancel }) {
       const formPayload = new FormData();
       formPayload.append('name', formData.name.trim());
       formPayload.append('specialization', formData.specialization.trim());
-      formPayload.append('qualifications', formData.qualifications.split(',').map(q => q.trim()));
+      formPayload.append('qualifications', JSON.stringify(formData.qualifications.split(',').map(q => q.trim())));
       formPayload.append('experience', formData.experience);
       formPayload.append('location', formData.location.trim());
       formPayload.append('charges', formData.charges);
