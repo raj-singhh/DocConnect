@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const path = require('path'); // For serving static files
+const path = require('path'); 
 const multer = require('multer'); // For file uploads
-const doctorRoutes = require('./routes/doctorRoutes'); // Ensure this file contains the necessary routes for add-doctor and list-doctors
+const doctorRoutes = require('./routes/doctorRoutes'); 
 
 dotenv.config();
 
@@ -12,10 +12,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin:  'docconnect-five.vercel.app', // or your production frontend URL
+  origin:  'https://docconnect-five.vercel.app/',
   methods: ["GET", "POST", "PUT", "DELETE"],
-  // credentials: true // only if you need cookies
-})); // Enable CORS for cross-origin requests
+ 
+})); 
 app.use(express.json()); // Parse incoming JSON requests
 
 // Setup Multer storage engine for handling file uploads
