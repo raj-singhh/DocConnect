@@ -12,7 +12,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: `${process.env.PORT}`, // or your production frontend URL
+  origin:  'https://docconnect-f98h.onrender.com/', // or your production frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
   // credentials: true // only if you need cookies
 })); // Enable CORS for cross-origin requests
 app.use(express.json()); // Parse incoming JSON requests

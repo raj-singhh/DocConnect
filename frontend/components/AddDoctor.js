@@ -81,7 +81,7 @@ export default function AddDoctor({ onDoctorAdded, onCancel }) {
 
        // Add this console.log right before the fetch call
     
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/doctors/add-doctor`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/doctors/add-doctor`, {
         method: 'POST',
         body: formPayload, // Let browser set Content-Type with boundary
       });

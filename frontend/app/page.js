@@ -38,7 +38,7 @@ export default function DestinationPage() {
         page, 
         limit: 5 
       }).toString();
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${backendUrl}/api/doctors/list-doctors?${params}`);
       
       if (!res.ok) {
