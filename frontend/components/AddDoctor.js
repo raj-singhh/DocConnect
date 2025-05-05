@@ -64,14 +64,14 @@ export default function AddDoctor({ onDoctorAdded, onCancel }) {
       toast.error('Please fill all required details');
       return;
     }
-
+  
     setIsSubmitting(true);
-
+  
     try {
       const formPayload = new FormData();
       formPayload.append('name', formData.name.trim());
       formPayload.append('specialization', formData.specialization.trim());
-      formPayload.append('qualifications', JSON.stringify(formData.qualifications.split(',').map(q => q.trim())));
+      formPayload.append('qualifications', formData.qualifications); // Don't stringify here
       formPayload.append('experience', formData.experience);
       formPayload.append('location', formData.location.trim());
       formPayload.append('charges', formData.charges);
@@ -79,18 +79,28 @@ export default function AddDoctor({ onDoctorAdded, onCancel }) {
       formPayload.append('language', JSON.stringify(formData.languages));
       if (formData.photo) formPayload.append('photo', formData.photo);
 
+       // Add this console.log right before the fetch call
+    
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/doctors/add-doctor`, {
         method: 'POST',
-        body: formPayload,
+        body: formPayload, // Let browser set Content-Type with boundary
       });
-
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        console.error('Error response:', errorData);
-        throw new Error(errorData.message || 'Failed to add doctor');
+  
+      const responseText = await res.text();
+      let data;
+      
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch (e) {
+        console.error('Failed to parse JSON:', responseText);
+        throw new Error('Invalid server response');
       }
-
-      const data = await res.json();
+  
+      if (!res.ok) {
+        console.error('Error response:', data);
+        throw new Error(data.message || `Server error: ${res.status}`);
+      }
+  
       toast.success('Doctor added successfully!');
       onDoctorAdded(data.doctor);
       onCancel();

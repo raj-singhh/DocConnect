@@ -75,7 +75,7 @@ const DoctorCard = ({ doctor }) => {
    
       <div className="flex-shrink-0 mx-auto lg:mx-0">
         <img
-          src={`http://localhost:5000/${doctor.photoUrl}`}
+          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${doctor.photoUrl}`}
           alt={`Dr. ${doctor.name}`}
           className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 shadow-sm"
           onError={(e) => {

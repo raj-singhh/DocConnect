@@ -11,7 +11,10 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors()); // Enable CORS for cross-origin requests
+app.use(cors({
+  origin: `${process.env.PORT}`, // or your production frontend URL
+  // credentials: true // only if you need cookies
+})); // Enable CORS for cross-origin requests
 app.use(express.json()); // Parse incoming JSON requests
 
 // Setup Multer storage engine for handling file uploads
