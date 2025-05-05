@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin:  'https://docconnect-five.vercel.app/',
+  origin:  'https://docconnect-five.vercel.app',
   methods: ["GET", "POST", "PUT", "DELETE"],
  
 })); 
