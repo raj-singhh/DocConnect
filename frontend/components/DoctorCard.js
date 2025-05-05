@@ -80,7 +80,7 @@ const DoctorCard = ({ doctor }) => {
           className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 shadow-sm"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = '/default-doctor.png';
+            e.target.src = '/default-doctor.svg';
           }}
         />
       </div>

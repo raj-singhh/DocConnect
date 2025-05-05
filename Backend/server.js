@@ -17,6 +17,7 @@ app.use(cors({
  
 })); 
 app.use(express.json()); // Parse incoming JSON requests
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Setup Multer storage engine for handling file uploads
 const storage = multer.diskStorage({

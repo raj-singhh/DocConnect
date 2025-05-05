@@ -84,7 +84,7 @@ export default function Filters({ onFilterChange, onSortChange }) {
               <option value="">Relevance</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="experience-low">Years of Experience</option>
+              <option value="experience-high">Years of Experience</option>
             </select>
           </div>
 
