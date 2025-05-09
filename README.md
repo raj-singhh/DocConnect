@@ -68,7 +68,7 @@ npm start
 ## 🧪 API Endpoints
 
 - `POST /api/add-doctor` - Add a new doctor
-- `GET /api/list-doctor-with-filter?page=1&specialization=cardiologist&city=delhi` - List doctors with optional filters and pagination
+- `GET /api/list-doctors?page=1&specialization=cardiologist&city=delhi` - List doctors with optional filters and pagination
 
 ## ✨ Future Improvements
 
